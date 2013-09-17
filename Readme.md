@@ -26,14 +26,14 @@ Let's start a node with the example configuration:
 
 Now, we can start lager and turn on the log-group "user_activity" for log/debug.log
 
-```
+```erlang
 application:start(lager).
 lagerist:trace("log/debug.log", ["user_activity"]).
 ```
 
 Next we specify that our current process produces messages in the group "user_activity". Also we set the user id process-wide. Everything we will log from now on will be tagged with that log-group and user id.
 
-```
+```erlang
 lagerist:set_group("user_activity").
 lagerist:set_tag({user_id, 12345}).
 lagerist:log("module", 0, debug, [], "login", []).
@@ -48,9 +48,14 @@ lagerist:log("module", 0, debug, [], "login", []).
 Notice the formatting of the user id as specified in the config file. This can be very helpful when searching log files.
 
 If you want to stop logging any groups you can simply use
-```lagerist:untrace().```
+
+```erlang
+lagerist:untrace().
+```
 
 If your process is not tied to one logging group and user id or if you refrain from using the process dictionary you can do:
 
-```lagerist:log("module", 0, debug, [{log_group, "user_activity"}, {user_id, 12345}], "login", []).``` or
-```?debug("login", [], [{log_group, "user_activity"}, {user_id, 12345}]).```.
+```erlang
+lagerist:log("module", 0, debug, [{log_group, "user_activity"}, {user_id, 12345}], "login", []).
+?debug("login", [], [{log_group, "user_activity"}, {user_id, 12345}]).
+```
