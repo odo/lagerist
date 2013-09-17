@@ -59,3 +59,11 @@ If your process is not tied to one logging group and user id or if you refrain f
 lagerist:log("module", 0, debug, [{log_group, "user_activity"}, {user_id, 12345}], "login", []).
 ?debug("login", [], [{log_group, "user_activity"}, {user_id, 12345}]).
 ```
+
+## Including the header file to get the macros
+
+In order to include `lagerist.hrl` you have to tell rebar where to find it by adding 
+
+```{erl_opts, [{i, "deps/lagerist/include"}]}.```
+
+to `rebar.config` .
