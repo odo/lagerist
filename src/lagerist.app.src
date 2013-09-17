@@ -1,0 +1,8 @@
+{application, lagerist, [
+    {description, "A wrapper for the lager logging framework"},
+    {vsn, git},
+    {registered, []},
+    {modules, []},
+    {applications, []},
+    {env, []}
+]}.

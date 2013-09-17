@@ -1,0 +1,14 @@
+.eunit
+*.beam
+*.app
+*.dump
+deps/*
+.DS_Store
+log
+logs
+.rvmrc
+ebin/*
+*.log
+.gitmirror
+tags
+Gemfile.lock
